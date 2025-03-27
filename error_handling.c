@@ -6,7 +6,7 @@
 /*   By: bel-abde <bel-abde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 09:32:45 by bel-abde          #+#    #+#             */
-/*   Updated: 2025/03/26 22:06:45 by bel-abde         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:21:32 by bel-abde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,12 @@ void	print_exit_free(t_game *game, char *str)
 	int	i;
 
 	i = 0;
-	// free_2d(game->map);
-	// free_2d(game->map_copy);
+	full_cleanup(game);
 	while (str[i])
 	{
 		write(1, &str[i], 1);
 		i++;
 	}
-	full_cleanup(game);
 	exit(1);
 }
 

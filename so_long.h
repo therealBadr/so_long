@@ -6,7 +6,7 @@
 /*   By: bel-abde <bel-abde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:30:57 by bel-abde          #+#    #+#             */
-/*   Updated: 2025/03/26 22:07:17 by bel-abde         ###   ########.fr       */
+/*   Updated: 2025/03/27 18:19:39 by bel-abde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@
 #endif
 
 # include <stdio.h>
-// # include "MLX42/include/MLX42/MLX42_Int.h"
-# include "MLX1/mlx.h"
+# include "MLX/mlx.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
@@ -32,7 +31,7 @@ typedef struct s_game
 	char		**map;
 	char		**map_copy;
 	int			collectibles;
-	int			collectibles_count;
+	int			collectibles_earned;
 	int			player;
 	int			exit;
 	int			player_x;
@@ -50,6 +49,7 @@ typedef struct s_game
 	void		*player_img;
 	void		*exit_img;
 	void		*floor_img;
+	int			number_of_moves;
 } t_game;
 
 
@@ -65,11 +65,7 @@ void	free_all(char *stash, char *buffer);
 char	*get_my_line(char *stash, int i);
 char	*modify_stash(char *stash, int i);
 char	*get_next_line(int fd);
-int		count_my_string(char const *s, char c);
-int		count_my_word(char const *s, char c, int *i);
-void	clr_all(char **str, int index);
-void	fill_my_word(char const *s, char *str, int i, int x);
-char	**ft_split(char const *s, char c);
+char    **ft_split(char const *s, char c);
 int		belongs_to_set(char *set, char c);
 
 // error handling
