@@ -6,7 +6,7 @@
 /*   By: bel-abde <bel-abde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 23:52:34 by bel-abde          #+#    #+#             */
-/*   Updated: 2025/03/27 17:43:35 by bel-abde         ###   ########.fr       */
+/*   Updated: 2025/03/28 00:59:13 by bel-abde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	is_rectangular(t_game *game)
 	while (game->map[i])
 	{
 		if (ft_strlen(game->map[i]) != line)
-			print_exit_free(game, "ERROR: Map must be rectangular.\n");
+			print_exit_free(game, "ERROR\nMap must be rectangular\n");
 		i++;
 	}
 }
@@ -40,7 +40,7 @@ void	is_valid_char(t_game *game, char *set)
 		{
 			if (!belongs_to_set(set, game->map[i][j]))
 			{
-				print_exit_free(game, "ERROR: Invalid chars.\n");
+				print_exit_free(game, "Error\nInvalid chars\n");
 			}
 			j++;
 		}
@@ -61,7 +61,7 @@ void	walls_check(t_game *game, int arr_len, int str_len)
 	{
 		if (first_line[i] != '1' || last_line[i] != '1')
 		{
-			print_exit_free(game, "ERROR: Map must be surrounded by walls.\n");
+			print_exit_free(game, "Error\nMap must be surrounded by walls.\n");
 		}
 		i++;
 	}
@@ -69,7 +69,7 @@ void	walls_check(t_game *game, int arr_len, int str_len)
 	while (game->map[i] && i < arr_len - 1)
 	{
 		if (game->map[i][0] != '1' || game->map[i][str_len - 1] != '1')
-			print_exit_free(game, "ERROR: Map must be surrounded by walls.\n");
+			print_exit_free(game, "Error\nMap must be surrounded by walls.\n");
 		i++;
 	}
 }
@@ -79,10 +79,12 @@ void	initialize_items(t_game *game)
 	int	i;
 	int	j;
 
-	game->collectibles = 0;
-	game->collectibles_earned = 0;
-	game->player = 0;
-	game->exit = 0;
+    game->collectibles = 0;
+    game->collectibles_earned = 0;
+    game->player = 0;
+    game->exit = 0;
+    game->player_x = -1;
+    game->player_y = -1;
 	i = 0;
 	j = 0;
 	while (game->map[i])
@@ -124,5 +126,5 @@ void	check_items_count(t_game *game)
 		i++;
 	}
 	if (game->collectibles < 1 || game->exit != 1 || game->player != 1)
-		print_exit_free(game, "ERROR: Wrong items count.\n");
+		print_exit_free(game, "Error\nWrong items count.\n");
 }

@@ -6,7 +6,7 @@
 /*   By: bel-abde <bel-abde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:30:57 by bel-abde          #+#    #+#             */
-/*   Updated: 2025/03/27 18:19:39 by bel-abde         ###   ########.fr       */
+/*   Updated: 2025/03/28 00:28:15 by bel-abde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,16 @@ void	update_player_right(t_game *game);
 int	key_events(int id, t_game *game);
 void	destroy_images(t_game *game);
 void full_cleanup(t_game *game);
+
+void safe_free(void **ptr);
+void parsing_cleanup(t_game *game);
+void runtime_cleanup(t_game *game);
+void	free_parsing(t_game *game, char *str);
+
+void	open_file(t_game *game, char *file_name);
+void	handle_empty_file(t_game *game);
+void	process_gnl_line(t_game *game, char **new_temp);
+void	process_map_content(t_game *game);
+void	create_map_arrays(t_game *game);
+
 #endif

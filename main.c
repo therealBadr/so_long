@@ -6,7 +6,7 @@
 /*   By: bel-abde <bel-abde@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:29:50 by bel-abde          #+#    #+#             */
-/*   Updated: 2025/03/27 19:26:08 by bel-abde         ###   ########.fr       */
+/*   Updated: 2025/03/28 00:43:50 by bel-abde         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,16 @@ int	key_events(int id, t_game *game)
 	return (0);
 }
 
-// void	leaks()
-// {
-// 	system("leaks so_long");
-// }
+void	leaks()
+{
+	system("leaks so_long");
+}
 
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	// atexit(leaks);
 	if (argc == 2)
 	{
 		if (!check_extension(argv[1]))
